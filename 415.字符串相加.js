@@ -10,28 +10,24 @@
  * @param {string} num2
  * @return {string}
  */
-var addStrings = function (num1, num2) {
-    let a = num1.length
-    let b = num2.length
+var addStrings = function(num1, num2) {
+    let l1 = num1.length
+    let l2 = num2.length
 
-    let sum = '' // sum是字符串，计算时是字符串拼接
-    let add = 0 // add代表进位和当前位计算临时值
-
-    while (a || b) {
-        a ? add += +num1[--a] : ''
-        b ? add += +num2[--b] : ''
-
-        sum = add % 10 + sum
-
-        if (add > 9) add = 1
-        else add = 0
+    let str = '' // str是字符串，计算时是字符串拼接
+    let add = 0 // add代表进位
+    let tmp // 计算临时值
+    while (l1 || l2) {
+        tmp = (l1 ? +num1[--l1] : 0) + (l2 ? +num2[--l2] : 0) + add
+        str = tmp % 10 + str // 拼接，当前计算值拼在前面，想想列竖式
+        add = tmp > 9 ? 1 : 0
     }
 
     if (add) {
-        sum = 1 + sum
+        str = 1 + str
     }
 
-    return sum
+    return str
 };
 // @lc code=end
 

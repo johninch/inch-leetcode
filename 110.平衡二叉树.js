@@ -18,7 +18,15 @@
  * @return {boolean}
  */
 var isBalanced = function(root) {
-    
+    const maxDepth = (root) => {
+        if (!root) return 0
+
+        return 1 + Math.max(maxDepth(root.left), maxDepth(root.right))
+    }
+
+    if (!root) return true
+
+    return Math.abs(maxDepth(root.left) - maxDepth(root.right)) < 2 && isBalanced(root.left) && isBalanced(root.right)
 };
 // @lc code=end
 

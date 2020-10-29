@@ -10,10 +10,8 @@
  * @param {number} n
  * @return {number}
  */
-var uniquePaths = function (m, n) {
+var uniquePaths = function(m, n) {
     const dp = Array.from(new Array(m), () => new Array(n).fill(0))
-
-    dp[0][0] = 1
 
     for (let i = 0; i < m; i++) {
         for (let j = 0; j < n; j++) {
@@ -28,6 +26,6 @@ var uniquePaths = function (m, n) {
     }
 
     return dp[m - 1][n - 1]
-};
+}
 // @lc code=end
 

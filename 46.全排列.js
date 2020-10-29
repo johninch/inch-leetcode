@@ -9,14 +9,15 @@
  * @param {number[]} nums
  * @return {number[][]}
  */
-var permute = function (nums) {
+var permute = function(nums) {
     const res = []
 
     const backtrack = (res, tmpList, nums) => {
         if (tmpList.length === nums.length) {
             // 终止条件
-            return res.push([...tmpList])
+            res.push([...tmpList])
         } else {
+            // 递归循环
             for (let i = 0; i < nums.length; i++) {
                 if (tmpList.includes(nums[i])) continue
                 tmpList.push(nums[i])
@@ -29,6 +30,6 @@ var permute = function (nums) {
     backtrack(res, [], nums)
 
     return res
-};
+}
 // @lc code=end
 

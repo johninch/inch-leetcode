@@ -10,11 +10,11 @@
  * @param {number} target
  * @return {number}
  */
-var search = function (nums, target) {
+var search = function(nums, target) {
     let start = 0
     let end = nums.length - 1
     while (start <= end) {
-        let mid = start + ((end - start) >> 1)
+        let mid = start + end >> 1
 
         if (nums[mid] === target) {
             return mid
